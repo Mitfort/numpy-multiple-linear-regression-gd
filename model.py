@@ -115,7 +115,7 @@ def normal_equation(X, y):
 
 # Step 11 - initialize_weights
 def initialize_weights(n_features, seed=None):
-    if seed:
+    if seed is not None:
         np.random.seed(seed)
         
     
