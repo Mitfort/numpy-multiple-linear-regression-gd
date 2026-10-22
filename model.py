@@ -94,8 +94,11 @@ def predict_linear(X, weights):
     
     return X @ weights
 
-# Step 8 - mse_loss (not yet solved)
-# TODO: implement
+# Step 8 - mse_loss
+def mse_loss(y_true, y_pred):
+    n:int = len(y_true)
+
+    return (1/n) * np.sum((y_pred - y_true)**2)
 
 # Step 9 - mse_gradient (not yet solved)
 # TODO: implement
