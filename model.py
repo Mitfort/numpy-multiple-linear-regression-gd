@@ -113,8 +113,14 @@ def normal_equation(X, y):
 
     return np.linalg.solve(A,b)
 
-# Step 11 - initialize_weights (not yet solved)
-# TODO: implement
+# Step 11 - initialize_weights
+def initialize_weights(n_features, seed=None):
+    if seed:
+        np.random.seed(seed)
+    
+    weights = np.random.normal(0,0.01,size=n_features)
+
+    return weights
 
 # Step 12 - gd_step (not yet solved)
 # TODO: implement
