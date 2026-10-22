@@ -117,6 +117,7 @@ def normal_equation(X, y):
 def initialize_weights(n_features, seed=None):
     if seed:
         np.random.seed(seed)
+        
     
     weights = np.random.normal(0,0.01,size=n_features)
 
@@ -182,8 +183,23 @@ def update_early_stop_state(val_loss, best_val_loss, wait, weights, best_weights
         
         return (best_val_loss, wait, best_weights, stop)
 
-# Step 15 - init_training_state (not yet solved)
-# TODO: implement
+# Step 15 - init_training_state
+def init_training_state(n_features, seed=None):
+    weights = initialize_weights(n_features,seed)
+
+    best_weights = weights.copy()
+
+    best_val_loss = np.inf
+
+    return {
+        "weights": weights,
+        "best_weights": best_weights,
+        "best_val_loss": best_val_loss,
+        "wait": 0,
+        "train_losses": [],
+        "val_losses": [],
+        "stopped": False
+    }
 
 # Step 16 - run_one_epoch (not yet solved)
 # TODO: implement
