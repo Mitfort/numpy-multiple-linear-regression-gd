@@ -58,8 +58,9 @@ def compute_feature_stats(X):
 
     return mean, std
 
-# Step 4 - standardize_features (not yet solved)
-# TODO: implement
+# Step 4 - standardize_features
+def standardize_features(X, mean, std):
+    return (X-mean) / std
 
 # Step 5 - add_bias_column (not yet solved)
 # TODO: implement
