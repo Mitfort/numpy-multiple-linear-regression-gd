@@ -287,8 +287,19 @@ def evaluate_regression(y_true, y_pred):
         "r2": r2 
     }
 
-# Step 22 - learning_curve_data (not yet solved)
-# TODO: implement
+# Step 22 - learning_curve_data
+def learning_curve_data(train_losses, val_losses):
+
+    if isinstance(train_losses,np.ndarray):
+        train_losses = train_losses.tolist()
+        
+    if isinstance(val_losses, np.ndarray):
+        val_losses = val_losses.tolist()
+    
+
+    idxs = [i+1 for i in range(len(train_losses))]
+
+    return (idxs,train_losses,val_losses)
 
 # Step 23 - weights_l2_distance (not yet solved)
 # TODO: implement
