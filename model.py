@@ -301,8 +301,12 @@ def learning_curve_data(train_losses, val_losses):
 
     return (idxs,train_losses,val_losses)
 
-# Step 23 - weights_l2_distance (not yet solved)
-# TODO: implement
+# Step 23 - weights_l2_distance
+def weights_l2_distance(w_gd, w_closed):
+    
+    l2 = np.sqrt(np.sum((w_gd - w_closed)**2))
+
+    return l2
 
 # Step 24 - create_lr_model (not yet solved)
 # TODO: implement
