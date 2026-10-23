@@ -349,8 +349,13 @@ def fit_lr_model(model, X_train, y_train, X_val, y_val):
 
     return model
 
-# Step 26 - predict_lr_model (not yet solved)
-# TODO: implement
+# Step 26 - predict_lr_model
+def predict_lr_model(model, X):
+    X_desing = prepare_design_matrix(X, model['mean'], model['std'])
+
+    preds = predict_linear(X_desing, model['weights'])
+
+    return preds
 
 # Step 27 - score_lr_model (not yet solved)
 # TODO: implement
