@@ -30,7 +30,7 @@ def shuffle_xy(X, y, seed=42):
 
     if n == 0: return X, y
 
-    idxs = np.ndarray = np.arange(n)
+    idxs: np.ndarray = np.arange(n)
 
     np.random.shuffle(idxs)
 
