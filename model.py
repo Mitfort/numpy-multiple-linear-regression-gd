@@ -111,7 +111,7 @@ def normal_equation(X, y):
     A = X.T @ X
     b = X.T @ y 
 
-    return np.linalg.solve(A,b)
+    return np.linalg.pinv(A) @ b
 
 # Step 11 - initialize_weights
 def initialize_weights(n_features, seed=None):
@@ -323,8 +323,31 @@ def create_lr_model(learning_rate=0.01, epochs=1000, patience=50, seed=0):
         'val_losses': []
     }
 
-# Step 25 - fit_lr_model (not yet solved)
-# TODO: implement
+# Step 25 - fit_lr_model
+def fit_lr_model(model, X_train, y_train, X_val, y_val):
+    mean,std = compute_feature_stats(X_train)
+
+    X_train = prepare_design_matrix(X_train, mean, std)
+    X_val = prepare_design_matrix(X_val, mean, std)
+
+    weights, train_losses, val_losses = train_batch_gd(X_train,y_train, X_val, y_val, 
+        model['learning_rate'], 
+        model['epochs'],
+        model['patience'],
+        seed=model['seed']
+    )
+
+    normal_weights = normal_equation(X_train, y_train)
+
+    model['weights'] = weights
+    model['train_losses']  = train_losses
+    model['val_losses'] = val_losses
+    model['mean'] = mean
+    model['std'] = std
+
+    model['normal_weights'] = normal_weights  
+
+    return model
 
 # Step 26 - predict_lr_model (not yet solved)
 # TODO: implement
