@@ -357,8 +357,12 @@ def predict_lr_model(model, X):
 
     return preds
 
-# Step 27 - score_lr_model (not yet solved)
-# TODO: implement
+# Step 27 - score_lr_model
+import numpy as np
+def score_lr_model(model, X, y):
+    preds = predict_lr_model(model,X)
+
+    return evaluate_regression(y,preds)
 
 # Step 28 - compare_with_normal_equation (not yet solved)
 # TODO: implement
